@@ -2,22 +2,43 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #017097;
+}
+
+.nav__link {
+    color: white;
+    text-decoration: none;
+}
+
+.card {
+    text-decoration: none;
 }
 
 nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    background-color: black;
+    border-radius: 0px 0px 10px 10px;
+    background-color: #032541;
     color: white;
     padding: 30px;
-
 }
 
-.nav__link {
-    color: white;
+.search {
+    background-color: white;
+    border: 2px solid white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
 }
+
+.search::placeholder {
+    color: black;
+}
+
 
 .hero {
     width: 100%;
@@ -28,38 +49,203 @@ nav {
 
     font-size: 30px;
     font-weight: bold;
-}
-
-.card {
-    width: 100%;
-    max-width: 200px;
-
-    background-color: #333333;
-    border-radius: 6px;
-    overflow: hidden;
-
-    text-decoration: none;
-}
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.card__image {
-    width: 100%;
-}
-
-.card__content {
-    padding: 10px;
-
     color: white;
 }
 
-footer {
-    text-align: center;
+.movie {
+    width: 300px;
+    margin: 1rem;
+    padding: 5px;
+    border: 3px;
+    border-radius: 5px;
+    background-color: #032541;
+    position: relative;
+    overflow: hidden;
+}
 
-    padding: 40px;
+.movie img {
+    width: 100%;
+}
+
+.movie-info {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline-end: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
+}
+
+.movie-info h2 {
+    margin-top: 0;
+}
+
+.movie-info span {
+    background-color: black;
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: black;
+}
+
+.movie-info span.green {
+    color: green;
+}
+
+.movie-info span.orange {
+    color: orange;
+}
+
+.movie-info span.red {
+    color: red;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+footer {
+    background-color: #032541;
+    border-radius: 20px 20px 0px 0px;
+    color: white;
+    text-align: center;
+    padding: 50px;
+}
+
+.pagination {
+    display: flex;
+    margin: 10px 30px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.page {
+    padding: 20px;
+    cursor: pointer;
+}
+
+.page.disabled {
+    cursor: not-allowed;
+    color: grey;
+
+}
+
+.current {
+    padding: 5px;
+    border-radius: 50px;
+    border: 2px solid white;
+}
+
+.details {
+    background-color: #017097;
+    border-radius: 20px;
+    padding: 5px;
+    border: none;
+}
+
+.details:hover {
+    background-color: #033547;
+    border-radius: 20px;
+    padding: 5px;
+    border: none;
+}
+
+/* The Overlay (background) */
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    height: 100%;
+    width: 0;
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    /* Black fallback color */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Black w/opacity */
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+    position: relative;
+    top: 10%;
+    width: 100%;
+    /* 100% width */
+    text-align: center;
+    /* Centered text/links */
+    margin-top: 30px;
+    /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+.overlay h1 {
+    padding: 8px;
+    text-decoration: none;
+
+    color: orange;
+    display: block;
+    /* Display block instead of inline */
+    transition: 0.3s;
+    /* Transition effects on hover (color) */
+}
+
+.overlay img {
+
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s;
+    /* Transition effects on hover (color) */
+}
+
+.overlay p {
+
+    text-decoration: none;
+
+    color: white;
+    display: block;
+    /* Display block instead of inline */
+    transition: 0.3s;
+    /* Transition effects on hover (color) */
+}
+
+.overlay .release {
+    padding: 8px;
+    text-decoration: none;
+    text-align: center;
+    color: orange;
+    display: block;
+    /* Display block instead of inline */
+    transition: 0.3s;
+    /* Transition effects on hover (color) */
+}
+
+.overlay .tagline {
+    padding: 8px;
+    text-decoration: none;
+    text-align: center;
+    color: orange;
+    display: block;
+    /* Display block instead of inline */
+    transition: 0.3s;
+    /* Transition effects on hover (color) */
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
 }
